@@ -469,7 +469,6 @@ textarea {
 }
 
 #checked {
-    /*vertical-align: middle;*/
     display: inline-block;
     float: left;
     width: 40px;
