@@ -4,10 +4,21 @@
     padding: 0;
 }
 
-.container::after {
+body {
+    font-family: 'raleway', sans-serif;
+}
+
+
+.row::after {
     content: "";
     clear: both;
     display: table;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1050px;
+
 }
 
 @font-face {
@@ -18,17 +29,7 @@
     font-style: normal;
 }
 
-body {
-    font-family: 'raleway', sans-serif;
-}
-
-
-.container {
-    margin: 0 auto;
-    width: 1050px;
-
-}
-
+/* UP NAGŁÓWEK */
 .up {
     background-color: black;
     padding: 10px 0;
@@ -40,41 +41,84 @@ body {
     text-transform: uppercase;
     color: white;
     font-size: 12px;
-    padding-left: 55px;
+    font-weight: bolder;
+    padding-left: 0px;
     padding-top: 4px;
     float: left;
 }
 
 .up p span {
     color: #24baa0;
-    font-weight:bold;
+    font-weight:bolder;
 }
-
+/*MENU*/
 .menu {
     list-style: none;
     float: right;
-    padding-right: 55px;
+    padding-right: 0px;
     text-transform: uppercase;
 }
 
 .menu a {
     text-decoration: none;
     color: white;
-    font-weight: 500;
+    font-weight: bolder;
     letter-spacing: 1px;
 }
 
-.menu li {
+.menu>li {
     display: inline-block;
     padding: 0 10px;
     font-weight: bold;
     font-size: 12px;
+    position: relative;
+}
+
+.menu li ul {
+    font-size: 12px;
+    list-style: none;
+    text-transform: uppercase;
+    color: white;
+    position: absolute;
+    top:35px;
+    z-index: 1;
+    display: none;
+    background-color: black;
+}
+
+.triangle {
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    -webkit-transform:rotate(45deg);
+    position: absolute;
+    top:-5px;
+    left: 15px;
+}
+
+.points {
+    padding:10px;
+    position: relative;
+}
+
+/* MIDDLE */
+/* slider*/
+.slider ul{
+    list-style: none;
+}
+
+.slider li{
+    display: none;
+}
+
+.slider .visible{
+    display: inline-block;
 }
 
 .black_chair {
     background-color: #FAFAFA;
     background-image: linear-gradient(180deg, #FAFAFA, #D1D0D8);
-    padding-top: 45px;
+    padding-top: 30px;
     padding-bottom: 20px;
 }
 
@@ -91,9 +135,10 @@ body {
 
 .black_chair h1 {
     text-transform: uppercase;
-    font-size: 30px;
-    margin: 40px;
-    font-weight: 500;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 30px;
+
 }
 
 .black_chair p {
@@ -111,6 +156,19 @@ body {
     margin: 15px auto;
 }
 
+.button:hover {
+    animation: pulsowanie 3s infinite alternate;
+    -moz-animation: pulsowanie 3s infinite alternate;
+    -webkit-animation: pulsowanie 3s infinite alternate;
+}
+
+@keyframes pulsowanie
+{
+    0% {background-color: #24baa0;}
+    100% {background-color: yellow;}
+}
+
+
 .link1 {
     text-decoration: none;
     text-transform: uppercase;
@@ -120,20 +178,13 @@ body {
     padding: 13px 35px;
 }
 
-.inner_green {
-    color: #30B99F;
-    font-weight: bold;
-}
-
-.black_chair .container {
-    position: relative;
-}
-
 .arrow {
-    font-size: 64px;
+    font-size: 50px;
     color: #30B99F;
 }
-
+.arrow:hover{
+    cursor: pointer;
+}
 .arrow_left {
     position: absolute;
     top: 35%;
@@ -144,6 +195,17 @@ body {
     position: absolute;
     top: 35%;
     right: 0;
+}
+
+/* IMAGES */
+
+.inner_green {
+    color: #30B99F;
+    font-weight: bold;
+}
+
+.black_chair .container {
+    position: relative;
 }
 
 .images {
@@ -225,6 +287,8 @@ body {
     margin-top: 3px;
 }
 
+/* OFFER */
+
 .offer .column {
     padding-right: 15px;
     padding-left: 15px;
@@ -232,15 +296,10 @@ body {
     width: 33.33%;
 }
 
-.offer .row:last-child {
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
 .offer {
     background-color: #F1F1F1;
-    padding-top: 45px;
-    padding-bottom: 66px;
+    padding-top: 75px;
+    padding-bottom: 65px;
 }
 
 .h2_font {
@@ -415,6 +474,7 @@ body {
     background-color: #30B99F;
     border: 2px solid #30B99F;
 }
+/* FORMULARZ */
 
 .formul {
     background-color: white;
@@ -435,7 +495,7 @@ body {
 .contact input,
 .contact textarea {
     display: block;
-    width: 600px;
+    width: 650px;
     font-size: 27px;
     padding: 15px 10px;
     font-weight: 100;
@@ -444,13 +504,16 @@ body {
     letter-spacing: 1px;
 }
 
+::-webkit-input-placeholder {
+    color: #CECECE;
+}
+
 textarea {
     height: 180px;
     resize: none;
 }
 
 .red_chair {
-
     display: inline-block;
     margin-top: -20px;
     width: 240px;
@@ -465,29 +528,31 @@ textarea {
     line-height: 20px;
     color: #C2C2C2;
     text-align: left;
-    float: left;
 }
 
-#checked {
+input[type="checkbox"] + label p {
+    vertical-align: middle;
     display: inline-block;
     float: left;
-    width: 40px;
-    height: 40px;
-    border: 1px solid gray;
-    background-image: url('images/form_ok.jpg');
-    background-size: auto 100%;
-    background-position: 45%;
-    background-repeat: no-repeat;
-    margin-right: 20px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #B2E5D8;
+    background: url("../images/form_ok.jpg") no-repeat;
+    background-position: -3px;
+    margin-right: 14px;
+    cursor: pointer;
 }
 
+input[type="checkbox"] {
+    display: none;
+}
 
 .button_last {
     background-color: #30B99F;
     padding: 20px;
     border-radius: 7px;
     height: 70px;
-    width: 315px;
+    width: 350px;
     display: inline-block;
     margin-left: 20px;
     margin-top: 35px;
@@ -503,6 +568,8 @@ textarea {
     letter-spacing: 1px;
     color: white;
 }
+
+/* STOPKA*/
 
 .foot {
     background-color: white;
